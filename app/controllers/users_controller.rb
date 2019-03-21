@@ -23,17 +23,9 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       # If user fails model validation - probably a bad password or duplicate email:
-      flash.now.alert = "Oops, couldn't create account. Please make sure you are using a valid email and password and try again."
+      flash[:alert] = "Oops, couldn't create account. Please make sure you are using a valid email and password and try again."
       redirect_to '/signup'
     end
   end
-
-# private
-
-#   def user_params
-#     # strong parameters - whitelist of allowed fields #=> permit(:name, :email, ...)
-#     # that can be submitted by a form to the user model #=> require(:user)
-#     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
-#   end
 
 end

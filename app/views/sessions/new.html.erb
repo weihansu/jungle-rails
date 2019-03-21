@@ -1,5 +1,14 @@
-<div class="container-signup">
+<div class="container">
+  <% flash.each do |key, value| %>
+    <div class="<%= flash_class(key) %>">
+      <%= value %>
+    </div>
+  <% end %>
 
+  <%= yield %>
+</div>
+
+<div class="container-signup">
   <div class="col-md-6">
     <div class="col-md-12">
       <h1>Login</h1>
