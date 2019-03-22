@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @ar_order = LineItem.where(order_id: params[:id]).joins(:product).includes(:product)
   end
 
   def create
@@ -55,5 +56,6 @@ class OrdersController < ApplicationController
     order.save!
     order
   end
+
 
 end
