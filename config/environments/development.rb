@@ -40,4 +40,17 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   config.web_console.whitelisted_ips = ['10.0.2.0/24']
+
+  # MAIL GUN
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => "sandbox370c341e3f2246f19179a042a3bfd3d3.mailgun.org",
+    :user_name => "postmaster@sandbox370c341e3f2246f19179a042a3bfd3d3.mailgun.org",
+    :password => "a83324306357a3947ea9a3ed225a2f84-985b58f4-de60265f"
+  }
+
+
 end

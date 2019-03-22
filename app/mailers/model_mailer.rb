@@ -5,9 +5,15 @@ class ModelMailer < ApplicationMailer
   #
   #   en.model_mailer.new_user_notification.subject
   #
-  def new_user_notification
-    @greeting = "Hi"
+  def new_user_notification()
 
-    mail to: "to@example.org"
   end
+
+  def new_order_notification(order, enhanced_cart)
+    @order = order
+    @enhanced_cart = enhanced_cart
+
+    mail to: @order.email, subject: "Jungle - Order ID ##{@order.id}"
+  end
+
 end

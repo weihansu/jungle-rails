@@ -1,0 +1,11 @@
+Jungle Order's Receipt
+
+<%= @order.email %>, here is your receipt for order ID <%= @order.id %>
+
+Product | Unit Price | Quantity | Price
+
+<% @enhanced_cart.each do |line| %>
+<%= line[:product].name %> | <%= humanized_money_with_symbol line[:product].price %> | <%= line[:quantity] %> | <%= humanized_money_with_symbol line[:product].price * line[:quantity] %>
+<% end %>
+
+TOTAL: <%= humanized_money_with_symbol @order.total_cents / 100.0 %>
