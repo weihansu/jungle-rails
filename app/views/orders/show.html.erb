@@ -17,13 +17,9 @@
       </thead>
 
       <tbody>
-
-
         <% @ar_order.each do |line| %>
           <%= render 'item', product: line.product, quantity: line.quantity.to_i %>
         <% end %>
-
-
       </tbody>
 
       <tfoot>
