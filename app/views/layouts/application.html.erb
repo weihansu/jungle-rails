@@ -11,6 +11,15 @@
   <%= render 'layouts/top_nav' %>
 
   <main class="container">
+
+    <div class="container">
+      <% flash.each do |key, value| %>
+      <div class="<%= flash_class(key) %>">
+        <%= value %>
+      </div>
+      <% end %>
+    </div>
+
     <%= yield %>
   </main>
 

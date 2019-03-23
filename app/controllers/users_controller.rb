@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     if @user.save
       # If user saves in the db successfully:
       session[:user_id] = @user_id
-      flash[:sucess] = "Account created successfully!"
+      flash[:success] = "Account created successfully!"
       redirect_to root_path
     else
       # If user fails model validation - probably a bad password or duplicate email:
