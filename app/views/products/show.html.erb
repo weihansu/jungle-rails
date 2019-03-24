@@ -26,6 +26,27 @@
       </div>
     </div>
 
+    <%= form_for @product, :url => product_ratings_path(@product, @rating), method: :post do |f| %>
+      <div>
+        <%= f.label :rating%>
+        <%= f.select :rating, options_for_select([["Select One", ""], 0, 1, 2, 3, 4, 5]) %>
+      </div>
+      <div>
+        <%= f.label :description %>
+        <%= f.text_area :description, :value => nil%>
+      </div>
+      <div class="form-row col-md-12 float-right">
+        <%= f.submit 'Sign Up', class: 'btn btn-info btn-submit'%>
+      </div>
+    <%end%>
+
+    <div class="row">
+      <% @product.rating.order('created_at DESC').each do |rating| %>
+        <%= render "rating", rating: rating %>
+      <% end %>
+
+    </div>
+
   </article>
 
 </section>
