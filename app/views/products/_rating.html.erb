@@ -57,6 +57,13 @@
                     <div class="review-block-description">
                         <%= rating.description %>
                     </div>
+                    <% if current_user %>
+                        <% if current_user.id == rating.user_id %>
+                            <div>
+                                <%= link_to fa_icon('trash'), product_rating_path(@product, rating), class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+                            </div>
+                        <% end %>
+                    <% end %>
                 </div>
             </div>
         </div>
