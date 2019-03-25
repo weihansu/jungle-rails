@@ -53,24 +53,32 @@ RSpec.describe User, type: :model do
     expect(subject).to_not be_valid
   end
 
-  # it "is not valid without a name" do
-  #   subject.name = nil
-  #   expect(subject).to_not be_valid
-  # end
+  # RSPEC AUTHENTICATE WITH CREDENTIALS
+  describe '.authenticate_with_credentials' do
+    it "is not valid authenticate_with_credentials with wrong password" do
+      user = User.create(
+        first_name: "Anything",
+        last_name: "Anything",
+        email: "anything@jungle.com",
+        password: 'Jungle',
+        password_confirmation: 'Jungle'
+      )
+      expect(user.authenticate_with_credentials('anything@jungle.com', 'angle')).to_not be User
+    end
+  end
 
-  # it "is not valid without a price" do
-  #   subject.price_cents = nil
-  #   expect(subject).to_not be_valid
-  # end
-
-  # it "is not valid without a category" do
-  #   subject.category = nil
-  #   expect(subject).to_not be_valid
-  # end
-
-  # it "is not valid without a quantity" do
-  #   subject.quantity = nil
-  #   expect(subject).to_not be_valid
-  # end
+  # RSPEC AUTHENTICATE WITH CREDENTIALS - EMAIL BLANKSPACES
+  describe '.authenticate_with_credentials' do
+    it "is valid authenticate_with_credentials with email blackspaces" do
+      user = User.create(
+        first_name: "Anything",
+        last_name: "Anything",
+        email: "test@jungle.com",
+        password: 'Jungle',
+        password_confirmation: 'Jungle'
+      )
+      expect(user.authenticate_with_credentials('   test@jungle.com   ', 'Jungle')).to be User
+    end
+  end
 
 end
