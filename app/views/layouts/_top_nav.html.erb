@@ -39,10 +39,10 @@
             <li><%= link_to 'Categories',  [:admin, :categories] %></li>
           </ul>
         </li>
+
         <% if current_user %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-
               <span class="text-primary"><%= "Hello, #{current_user.first_name.titleize}" %></span>
               <span class="caret"></span>
             </a>
@@ -51,7 +51,16 @@
             </ul>
           </li>
         <% else %>
-          <li><%= link_to 'Login', '/login' %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <span class="text-dark"><%= fa_icon 'user'%></span>
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to 'Signup', '/signup' %></li>
+              <li><%= link_to 'Login', '/login' %></li>
+            </ul>
+          </li>
         <% end %>
 
         <li>
