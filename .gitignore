@@ -8,6 +8,7 @@
 /log/*
 !/log/.keep
 /tmp
+*.DS_Store
 
 # Ignore carrier wave uploads for development
 /public/uploads
@@ -22,7 +23,7 @@ capybara-*.html
 /db/*.sqlite3-journal
 /public/system
 /coverage/
-/spec/tmp
+/spec/tmp/
 **.orig
 rerun.txt
 pickle-email-*.html
