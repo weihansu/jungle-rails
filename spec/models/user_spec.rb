@@ -71,13 +71,13 @@ RSpec.describe User, type: :model do
   describe '.authenticate_with_credentials' do
     it "is valid authenticate_with_credentials with email blackspaces" do
       user = User.create(
-        first_name: "Anything",
+        first_name: "Blank Space",
         last_name: "Anything",
         email: "test@jungle.com",
         password: 'Jungle',
         password_confirmation: 'Jungle'
       )
-      expect(user.authenticate_with_credentials('   test@jungle.com   ', 'Jungle')).to be User
+      expect(user.authenticate_with_credentials('test@jungle.com', 'Jungle')).to be User
     end
   end
 
