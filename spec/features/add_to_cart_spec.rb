@@ -16,12 +16,13 @@ RSpec.feature "Visitor navigates to home page", type: :feature, js: true do
     end
   end
 
-  scenario "Visit product details page" do
+  scenario "Visit add_to_cart" do
     # ACT
     visit root_path
-    # click_on "Details »"
-    first(:link, "Details »").click
-    expect(page).to have_css '.main-img'
+    # click_on "Add"
+    first(:button, "Add").click
+
+    expect(page).to have_css '.navbar'
     # puts page.html
     # DEBUG / VERIFY
     save_screenshot
